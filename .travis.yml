@@ -5,6 +5,7 @@ deploy:
   api_key:
     secure: Uq1lNcRGEh0Ets4kid1gGLeg4udtY9jocHJ2BM/IMrrCFyKrnnZWauJMsWXQcwvZsRqS9DSCIKSYrRcsGahBnQ2O9EaQvDFH+zdVbBsSqGVBUMB3w5OGye/nb+sTfBtfNf4FrHYJHsXZC57oLLLADDHppyrumNc599bT9G7JnORmfi0xkQ8Yvm8i69HLRUlZ6vt/mgvE9bQ4eQPpNNq9/bMhrH1xywEREfNgreFYKSmb3NyU7Ack0UcFoczFRciS36t7Dz3vcW+wGgr+Yc5D1OIqHaQOb568lJT9X9fmEB6bReD1TuraQWyEIFugFxPUjPOb0c8XLoFLwkgDM/a6OzAkUsoOr3Hf3kHwLyM7AhOyUT/DDE0/ZZZ/m9J+CJwA5QhBW6gqx3+0lWaLoX+3IivcXQZXXKR3aWp4JWqhHkvnGLn9Mb9hhkFlkyRgnKBwFD20boEv/Gu4e9YKhnWGkOZ4TYM/AqL+ApnV8MGc6DDDeiv+HjdyOiYQFHzkPzZ3lYQDr1bst83c7zd9HVvZ4wQYJOZrBMxmMmi3qwgwm28pBanMUm9JYvyHdHf+S6R0jgdG9ev1ndViZdDtkC8nG45lRzzvYyP7vgo3gVzJQNppQsid9NfOVYShXMpNs0y7r81+u/zjrnc6XnuRWdGLPsjKdU3PFC5a2mxDwCbkhAY=
   file: UnityTC.dll
+  skip_cleanup: true
   on:
     tags: true
     repo: maxthecatstudios/UnityTC
