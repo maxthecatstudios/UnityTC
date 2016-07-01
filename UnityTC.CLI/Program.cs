@@ -9,13 +9,15 @@
 //   
 //  
 
+using System.Linq;
+
 namespace UnityTC.CLI
 {
     class Program
     {
         static void Main( string[] args )
         {
-            Unity.StartUnity( args[ 0 ], args );
+            Unity.StartUnity( args[ 0 ], string.Join( " ", args, 1, args.Length - 1 ) );
         }
     }
 }

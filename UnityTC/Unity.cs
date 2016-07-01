@@ -25,7 +25,7 @@ namespace UnityTC
         /// <param name="unityPath"></param>
         /// <param name="args"></param>
         /// <returns></returns>
-        public static int StartUnity( string unityPath, params string[] args )
+        public static int StartUnity( string unityPath, string args )
         {
             var sb = new StringBuilder();
             var watcher = new Watcher( Path.GetTempFileName() );
@@ -35,8 +35,9 @@ namespace UnityTC
             var unity = new Process { StartInfo = new ProcessStartInfo( unityPath ) };
 
             sb.Append( $"-logFile \"{watcher.LogPath}\"" );
-            for ( var i = 1; i < args.Length; i++ )
-                sb.Append( $" \"{args[ i ]}\"" );
+            sb.Append( $" {args}" );
+            //for ( var i = 1; i < args.Length; i++ )
+            //    sb.Append( $" \"{args[ i ]}\"" );
 
             unity.StartInfo.Arguments = sb.ToString();
             Console.WriteLine( $"##teamcity[progressMessage 'Starting Unity {unity.StartInfo.Arguments}'" );
