@@ -40,7 +40,7 @@ namespace UnityTC
             //    sb.Append( $" \"{args[ i ]}\"" );
 
             unity.StartInfo.Arguments = sb.ToString();
-            Console.WriteLine( $"##teamcity[progressMessage 'Starting Unity {unity.StartInfo.Arguments}'" );
+            Console.WriteLine( $"##teamcity[progressMessage 'Starting Unity {unity.StartInfo.Arguments}']" );
 
             unity.Start();
 
@@ -49,6 +49,17 @@ namespace UnityTC
             unity.WaitForExit();
             watcher.Stop();
             watcherThread.Join();
+
+            if ( watcher.FullLog.Contains( "Successful build ~0xDEADBEEF" ) )
+            {
+                Console.WriteLine( "##teamcity[progressMessage 'Success']" );
+                Environment.Exit( 0 );
+            }
+            else
+            {
+                Console.WriteLine( "##teamcity[progressMessage 'Failed']" );
+                Environment.Exit( 1 );
+            }
 
             return unity.ExitCode;
         }
