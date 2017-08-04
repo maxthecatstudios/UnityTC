@@ -15,9 +15,9 @@ namespace UnityTC.CLI
 {
     class Program
     {
-        static void Main( string[] args )
+        private static int Main( string[] args )
         {
-            Unity.StartUnity( args[ 0 ], string.Join( " ", args, 1, args.Length - 1 ) );
+            return Unity.StartUnity( args[ 0 ], string.Join( " ", args, 1, args.Length - 1 ) );
         }
     }
 }
