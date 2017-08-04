@@ -50,18 +50,20 @@ namespace UnityTC
             watcher.Stop();
             watcherThread.Join();
 
+            var exitCode = 0;
             if ( watcher.FullLog.Contains( "Successful build ~0xDEADBEEF" ) )
             {
                 Console.WriteLine( "##teamcity[progressMessage 'Success']" );
-                Environment.Exit( 0 );
+                //Environment.Exit( 0 );
             }
             else
             {
                 Console.WriteLine( "##teamcity[progressMessage 'Failed']" );
-                Environment.Exit( 1 );
+                exitCode = 1;
+                //Environment.Exit( 1 );
             }
 
-            return unity.ExitCode;
+            return exitCode;
         }
     }
 }
